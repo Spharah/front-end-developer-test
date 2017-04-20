@@ -1,0 +1,53 @@
+<html ng-app="app">
+    <head>
+        <link href="lib/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
+        <style>
+            .ng-cloak{
+                display: none;
+            }
+        </style>
+    </head>
+    <body ng-controller="mainController as vm">
+        <div class="container">
+            <br>
+            <div class="row">
+            <div class="col-md-6">
+                
+            <div ng-cloak  class="alert alert-success ng-cloak" ng-show="vm.classification.length > 0">
+            <div class="text-center">{{vm.classification}}</div>
+            </div>
+                </div>
+                
+            </div>
+            
+            <form name="classificationForm" novalidate="novalidate">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label >Age</label>
+                        <input type="text" ng-model="vm.person.age" class="form-control" numbers-only decimal-place=0 allow-negative=false required/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label >Height</label>
+                        <input type="text" ng-model="vm.person.height" class="form-control" numbers-only allow-negative=false required/>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-block btn-success" ng-click="vm.classifyPerson()" ng-disabled="classificationForm.$invalid">Classify Person</button> 
+                    </div>
+                </div>
+        </form>
+        </div>
+        
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="index.js"></script>
+         <script src="app/main.controller.js"></script>
+         <script src="app/numbers-only.directive.js"></script>
+    </body>
+</html>
