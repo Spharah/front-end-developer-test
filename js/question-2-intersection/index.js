@@ -12,9 +12,18 @@ var firstArray = [2, 2, 4, 1];
 var secondArray = [1, 2, 0, 2];
 
 function findIntersection (arr1, arr2) {
+    
+    var result = [];
+    var merged = arr1.filter(function(i){
+        return arr2.indexOf(i) >-1;
+    });
 
-    // TODO: [Your code here]
+    merged.forEach(function(i) {
+        if(result.indexOf(i) == -1)
+            result.push(i);            
+    }, this);
 
+    return result;
 }
 
 var intersection = findIntersection(firstArray, secondArray);
